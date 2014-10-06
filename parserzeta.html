@@ -1,0 +1,90 @@
+<html>
+<link rel="stylesheet" href="http://codemirror.net/lib/codemirror.css">
+<link rel="stylesheet" href="builder.css" type="text/css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".view_list").on("click", function() { 
+		var list_name = $("#view_list").val();
+
+		var html 	= $("#html");
+		var css 	= $("#css");
+		var js 		= $("#js");
+
+		if (list_name == "html") {
+			html.css("display", "none");
+			css.css("display", "none");
+		}
+		else if (list_name == "css") {
+			html.css("display", "none");
+			css.css("display", "block");
+			js.css("display", "none");
+		}
+		else {
+			html.css("display", "none");
+			css.css("display", "none");
+			js.css("display", "block");
+		}
+	});
+});
+</script>
+
+<div id="wrap">
+	<!-- Code Editors -->
+	<section id="code_editors">
+		<div id="html" class="code_box">
+			<!--<h3>HTML</h3>-->
+
+			<select class="view_list">
+				<option name="html">HTML</option>
+				<option name="css">CSS</option>
+				<option name="js">JAVASCRIPT</option>
+			</select>
+
+			<textarea name="html"></textarea>
+		</div>
+		<div id="css" class="code_box" style="display:none;">
+			<!--<h3>CSS</h3>-->
+
+			<select class="view_list">
+				<option name="html">HTML</option>
+				<option name="css">CSS</option>
+				<option name="js">JAVASCRIPT</option>
+			</select>
+
+			<textarea name="css"></textarea>
+		</div>
+		<div id="js" class="code_box" style="display:none;">
+			<!--<h3>JavaScript</h3>-->
+
+			<select class="view_list">
+				<option name="html">HTML</option>
+				<option name="css">CSS</option>
+				<option name="js">JAVASCRIPT</option>
+			</select>
+
+			<textarea name="js"></textarea>
+		</div>
+	</section>
+	
+	<!-- Sandboxing -->
+	<section id="output">
+		<iframe></iframe>
+	</section>
+</div>
+
+<script src="http://codemirror.net/lib/codemirror.js"></script>
+<script src="builder.js"></script>
+<!-- For HTML/XML -->
+<script src="http://codemirror.net/mode/xml/xml.js"></script>
+<script src="http://codemirror.net/mode/htmlmixed/htmlmixed.js"></script>
+
+<!-- For CSS -->
+<script src="http://codemirror.net/mode/css/css.js"></script>
+
+<!-- For JS -->
+<script src="http://codemirror.net/mode/javascript/javascript.js"></script>
+
+</html>
